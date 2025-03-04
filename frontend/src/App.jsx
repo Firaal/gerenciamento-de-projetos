@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import "./App.css";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
+import Container from "../components/layout/Container";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 function App() {
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        axios
-            .get("http://localhost:3000/api/hello")
-            .then((response) => setMessage(response.data.message))
-            .catch((error) => console.error(error));
-    }, []);
-
     return (
         <>
-            <h1>{message}</h1>
-            <Outlet />
+            <Header />
+
+            <Container customClass="min-height">
+                <Outlet />
+            </Container>
+
+            <Footer />
         </>
     );
 }
