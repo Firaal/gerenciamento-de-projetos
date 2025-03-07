@@ -28,10 +28,11 @@ server.get("/categories", async (request, reply) => {
 });
 
 server.post("/projects", async (request, reply) => {
-    const { nome, preco } = request.body;
+    const { name, budget } = request.body;
+
     let data = readData();
 
-    const newProject = { nome, preco };
+    const newProject = { name, budget };
     data.projects.push(newProject);
 
     writeData(data);

@@ -3,7 +3,7 @@ import Container from "./Container";
 import styles from "./Header.module.css";
 import logo from "../../src/imgs/costs_logo.png";
 
-function Navbar() {
+function Header() {
     return (
         <header className={styles.header}>
             <Container>
@@ -30,4 +30,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default Header;
