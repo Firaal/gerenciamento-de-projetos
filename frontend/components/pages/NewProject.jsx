@@ -27,7 +27,6 @@ function NewProject() {
             },
         });
         console.log(project);
-        console.log(e);
     }
 
     function createPost(project) {
@@ -40,7 +39,7 @@ function NewProject() {
         })
             .then((response) => response.json())
             .then((data) => {
-                navigate("/projects", { state: { message: "Projeto criado" } });
+                navigate("/projects", { state: { message: "Projeto criado com sucesso!" } });
                 console.log(data);
             })
             .catch((err) => {
@@ -51,7 +50,6 @@ function NewProject() {
     const submit = (e) => {
         e.preventDefault();
         createPost(project);
-        console.log(project);
     };
 
     return (

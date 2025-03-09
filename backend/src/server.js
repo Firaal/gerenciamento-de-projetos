@@ -19,6 +19,7 @@ function writeData(data) {
 
 server.get("/projects", async (request, reply) => {
     const data = readData();
+
     reply.send(data.projects);
 });
 
@@ -28,16 +29,14 @@ server.get("/categories", async (request, reply) => {
 });
 
 server.post("/projects", async (request, reply) => {
-    const { name, budget } = request.body;
+    const { name, budget, category } = request.body;
 
     let data = readData();
 
-    const newProject = { name, budget };
-    data.projects.push(newProject);
-
+    data.projects.push({ name, budget, category });
     writeData(data);
 
-    reply.send(newProject);
+    reply.send({ name, budget, category });
 });
 
 server.listen({ port: 3000 }, () => {
