@@ -1,6 +1,7 @@
 import fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 import fs from "fs";
+import { v4 as uuidv4 } from "uuid";
 
 const server = fastify();
 
@@ -33,10 +34,21 @@ server.post("/projects", async (request, reply) => {
 
     let data = readData();
 
-    data.projects.push({ name, budget, category });
+    data.projects.push({ id: uuidv4(), name, budget, category });
     writeData(data);
 
     reply.send({ name, budget, category });
+});
+
+server.delete("/projects/:id", async (request, reply) => {
+    const { id } = request.params;
+
+    let data = readData();
+
+    data.projects = data.projects.filter((project) => project.id !== id);
+    writeData(data);
+
+    reply.send(data);
 });
 
 server.listen({ port: 3000 }, () => {
