@@ -8,6 +8,7 @@ import Company from "../components/pages/Company.jsx";
 import Contact from "../components/pages/Contact.jsx";
 import NewProject from "../components/pages/NewProject.jsx";
 import Projects from "../components/pages/Projects.jsx";
+import ProjectDetails from "../components/pages/ProjectDetails.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: "projects",
                 element: <Projects />,
+            },
+            {
+                path: "project/:id",
+                element: <ProjectDetails />,
             },
         ],
     },
