@@ -1,55 +1,55 @@
 {
-  "projects": [
-    {
-      "id": "29f17614-9db9-4eab-86e5-5228ae7d00f0",
-      "name": "Projeto teste 1",
-      "budget": "3000",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "0856a368-6702-4211-9547-5f5ad77b20fe",
-      "name": "Projeto teste 1",
-      "budget": "2000",
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "e47e2bfa-47c9-4a7e-bfb8-6b492787160b",
-      "name": "Projeto teste 4",
-      "budget": "2000",
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 0,
-      "services": []
-    }
-  ],
-  "categories": [
-    {
-      "id": 1,
-      "name": "Infra"
-    },
-    {
-      "id": 2,
-      "name": "Desenvolvimento"
-    },
-    {
-      "id": 3,
-      "name": "Design"
-    },
-    {
-      "id": 4,
-      "name": "Planejamento"
-    }
-  ]
+    "projects": [
+        {
+            "id": "29f17614-9db9-4eab-86e5-5228ae7d00f0",
+            "name": "Projeto teste 1",
+            "budget": "3000",
+            "category": {
+                "id": "3",
+                "name": "Design"
+            },
+            "cost": 400,
+            "services": []
+        },
+        {
+            "id": "0856a368-6702-4211-9547-5f5ad77b20fe",
+            "name": "Projeto teste 1",
+            "budget": "2000",
+            "category": {
+                "id": "1",
+                "name": "Infra"
+            },
+            "cost": 0,
+            "services": []
+        },
+        {
+            "id": "e47e2bfa-47c9-4a7e-bfb8-6b492787160b",
+            "name": "Projeto teste 4",
+            "budget": "2000",
+            "category": {
+                "id": "1",
+                "name": "Infra"
+            },
+            "cost": 0,
+            "services": []
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "Infra"
+        },
+        {
+            "id": 2,
+            "name": "Desenvolvimento"
+        },
+        {
+            "id": 3,
+            "name": "Design"
+        },
+        {
+            "id": 4,
+            "name": "Planejamento"
+        }
+    ]
 }

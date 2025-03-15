@@ -50,12 +50,12 @@ server.post("/projects", async (request, reply) => {
     data.projects.push({ id: uuidv4(), name, budget, category, cost, services });
     writeData(data);
 
-    reply.send({ name, budget, category });
+    reply.send({ name, budget, category, cost, services });
 });
 
 server.patch("/projects/:id", async (request, reply) => {
     const { id } = request.params;
-    const { nome, budget, category } = request.body;
+    const { nome, budget, category, cost, services } = request.body;
 
     let data = readData();
 
@@ -68,6 +68,8 @@ server.patch("/projects/:id", async (request, reply) => {
     if (nome) project.name = nome;
     if (budget) project.budget = budget;
     if (category) project.category = category;
+    if (cost) project.cost = cost;
+    if (services) project.services = services;
 
     writeData(data);
 
