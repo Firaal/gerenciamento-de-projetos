@@ -76,16 +76,6 @@ server.patch("/projects/:id", async (request, reply) => {
     reply.send(project);
 });
 
-server.delete("/projects/:id", async (request, reply) => {
-    const { id } = request.params;
-
-    let data = readData();
-
-    data.projects = data.projects.filter((project) => project.id !== id);
-    writeData(data);
-
-    reply.send(data);
-});
 
 server.listen({ port: 3000 }, () => {
     console.log("Servidor rodando na porta 3000");

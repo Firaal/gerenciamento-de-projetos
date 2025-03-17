@@ -8,8 +8,27 @@
                 "id": "3",
                 "name": "Design"
             },
-            "cost": 400,
-            "services": []
+            "cost": 366,
+            "services": [
+                {
+                    "name": "Serviço 1",
+                    "cost": "120",
+                    "description": "Ajeitar algo",
+                    "id": "90f28c9a-3426-46b6-8e78-9c6583a3c404"
+                },
+                {
+                    "name": "Serviço 3",
+                    "cost": "123",
+                    "description": "qqq",
+                    "id": "1117e87a-2fcb-41f4-9e70-8ab9a16a5da3"
+                },
+                {
+                    "name": "Serviço 4",
+                    "cost": "123",
+                    "description": "qqq",
+                    "id": "3515e07a-0340-477f-b5f4-056105e0db10"
+                }
+            ]
         },
         {
             "id": "0856a368-6702-4211-9547-5f5ad77b20fe",
