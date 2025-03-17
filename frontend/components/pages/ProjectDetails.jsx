@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import styles from "./ProjectDetails.module.css";
 
-import { data, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,10 +11,14 @@ import Container from "../layout/Container";
 import ProjectForm from "../project/ProjectForm";
 import Message from "../layout/Message";
 import ServiceForm from "../service/ServiceForm";
+import ServiceCard from "../service/ServiceCard";
 
 function ProjectDetails() {
     const { id } = useParams();
+
     const [project, setProject] = useState([]);
+    const [services, setServices] = useState([]);
+
     const [projectDetails, setProjectDetails] = useState(true);
     const [serviceDetails, setServiceDetails] = useState(true);
 
@@ -30,7 +34,7 @@ function ProjectDetails() {
                 .then((data) => {
                     setProject(data);
                     setProjectDetails(true);
-                    console.log(data);
+                    setServices(data.services);
                 })
                 .catch((err) => console.log(err));
         }, 200);
@@ -104,7 +108,34 @@ function ProjectDetails() {
             body: JSON.stringify(project),
         })
             .then((response) => response.json())
-            .then((data) => console.log(data))
+            .then((data) => {
+                setProject(data);
+            })
+            .catch((err) => console.log(err));
+    }
+
+    function removeService(id, cost) {
+        const serviceUpdated = project.services.filter((service) => service.id !== id);
+
+        const projectUpdated = project;
+
+        projectUpdated.services = serviceUpdated;
+        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost);
+
+        fetch(`http://localhost:3000/projects/${projectUpdated.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(projectUpdated),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setProject(projectUpdated);
+                setServices(serviceUpdated);
+                setMessage("Serviço removido com sucesso!");
+                setType("success");
+            })
             .catch((err) => console.log(err));
     }
 
@@ -150,7 +181,20 @@ function ProjectDetails() {
 
                         <h2>Serviços</h2>
                         <Container customClass="start">
-                            <p>itens de Serviços</p>
+                            {services.length > 0 ? (
+                                services.map((service) => (
+                                    <ServiceCard
+                                        id={service.id}
+                                        name={service.name}
+                                        cost={service.cost}
+                                        description={service.description}
+                                        key={service.id}
+                                        handleRemove={removeService}
+                                    />
+                                ))
+                            ) : (
+                                <p>Não há serviços</p>
+                            )}
                         </Container>
                     </Container>
                 </div>
