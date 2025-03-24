@@ -4,7 +4,7 @@ Este projeto é uma aplicação web para gerenciamento de projetos e serviços a
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Front-end:** React, Vite, Tailwind CSS
+- **Front-end:** React, Vite
 - **Back-end:** Node.js, Fastify
 - **Banco de Dados:** Arquivo JSON local
 
@@ -14,7 +14,7 @@ Este projeto é uma aplicação web para gerenciamento de projetos e serviços a
 
 O projeto está organizado em duas pastas principais:
 
-- `/frontend` → Aplicação React (publicada na Vercel)
+- `/frontend` → Aplicação React
 - `/backend` → API Node.js com Fastify
 
 ## 🔧 Como Rodar o Projeto Localmente
